@@ -1,0 +1,111 @@
+div {
+font-size:12px;
+
+}
+body {
+background-image: url('./img/fon.png');
+background-repeat: repeat;
+}
+
+table {
+border:dotted 1px #f0cf80;
+text-align:center;
+padding:1px;
+font-size:12px;
+}
+
+a {
+font-size:12px;
+text-decoration: none;
+margin:3px;
+color:black;
+}
+
+a:hover {
+text-decoration: none;
+color:white;
+text-shadow: black 1px 1px 3px;
+text-align:center;
+}
+
+a:visited {
+text-decoration: none;
+margin:3px;
+color:black;
+}
+
+input {
+width:auto;
+font-size:12px;
+text-decoration: none;
+border: dotted 1pt;
+color:black;
+background-color:#8ff08f;
+}
+
+select {
+font-size:12px;
+text-decoration: none;
+border: dotted 1px;
+color:black;
+background-color:#8ff08f;
+}
+
+.menu {
+text-shadow: white 2px 2px 2px;
+text-align:center;
+top:0px;
+}
+
+tr {
+cursor: pointer;
+}
+
+.basetd {
+text-align:center;
+border: solid 1px #8ff08f;
+}
+
+.filtertd {
+text-align:left;
+vertical-align:top;
+width:auto;
+border: solid 1px black;
+}
+
+td {
+text-align:left;
+vertical-align:center;
+width:auto;
+}
+
+abbr {
+
+}
+
+.filter {
+box-shadow: 0px 0px 10px 1px black;
+-moz-box-shadow: 0px 0px 10px 1px black;
+-webkit-box-shadow: 0px 0px 10px 1px black;
+z-index:100;
+background-image: url('./img/green_dust.png');
+background-repeat:repeat;
+position:absolute;
+left:10px;
+top:-2px;
+border:solid 1px;
+padding:10px;
+}
+
+.shadow {
+box-shadow: 0px 0px 20px 2px black;
+-moz-box-shadow: 0px 0px 20px 2px black;
+-webkit-box-shadow: 0px 0px 20px 2px black;
+}
+
+.butshadow {
+border: solid 1px gray;
+box-shadow: 0px 0px 8px 1px black;
+-moz-box-shadow: 0px 0px 8px 1px black;
+-webkit-box-shadow: 0px 0px 8px 1px black;
+}

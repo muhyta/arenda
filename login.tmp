@@ -1,0 +1,10 @@
+<div class="shadow" style='background-color:#F4F4F4;position:absolute;top:40%;left:42%;right:42%;bottom:40%;font-size=10px;text-align:center;width:200px;height:100px;border:solid 1px #999999'>
+<form action=./index.php method=get>
+<input type=hidden name=p value=aak>
+<div>Логин:</div>
+<div><input type=text name=l size=16></div>
+<div>Пароль: </div>
+<div><input type=password name=pw size=16></div>
+<div style="bottom:0px;"><input class="butshadow" type=submit name=s value="Вход"></div>
+</form>
+</div>

@@ -1,0 +1,30 @@
+
+<div>
+<input style="background-image:url('./img/fon.png');border:2px solid;position:fixed;width:118px;height:24px;top:-2px;left:100px;z-index:2000;" type=button value="Фильтр" onclick="p()" id="plus">
+<input type=button value="Добавить" onclick="cl('./index.php?p=insert&%insert%')"></div>
+<div id='p' class="filter" style="display:none;">
+<form action="./index.php" method="get" enctype="text/plain">
+        <input type="hidden" name="p" value="aak">
+        <input type="hidden" name="id" value="%id%">
+	<input type="hidden" name="f" value="1">
+Статистика базы:<br>
+всего записей: %col_f% шт. <br>
+сегодня: +%col_d% шт. <br>
+<table style="border:none;">
+<tr><td style="text-align:right;border:none;width:auto;">Адрес:</td><td style="text-align:left;border:none;width:200px;"><input type=text name=by_adr style="width:100%;"></td></tr>
+<tr><td style="text-align:right;border:none;width:auto;">Телефон:</td><td style="border:none;text-align:left;width:200px;"><input type=text name=by_tel style="width:100%;"></td></tr>
+
+<tr><td style="text-align:right;border:none;width:auto;">Район:</td><td style="border:none;text-align:left;width:200px;"><select name="filt_reg[]" size="6" multiple style="width:100%;">
+<option value="" selected>*</option>
+%regn%</select></td></tr>
+
+<tr><td style="text-align:right;border:none;width:auto;">Тип:</td><td style="border:none;text-align:left;width:200px;"><select name="filt_type[]" multiple size="3" style="width:100%;">
+<option value="" selected>*</option>
+%tipo%</select></td></tr>
+
+</table>
+<div style="bottom:0px;"><input class="butshadow" type=submit name=s value="Применить"></div>
+</form>
+<div><input class="butshadow" type=button value="Дубликаты" onclick="doubles(this)"></div><br>
+%admin%
+</div>

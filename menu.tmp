@@ -1,0 +1,9 @@
+<div class="menu">
+ <a href="./index.php?p=aak&id=%id%&b=1"> Аренда(актив) </a>
+ <a href="./index.php?p=aak&id=%id%&b=2"> Аренда(архив) </a>
+ <a href="./index.php?p=aak&id=%id%&b=3"> Клиенты </a>
+ <a href="./index.php?p=aak&id=%id%&b=4"> Новые Клиенты </a>
+ <a href="./index.php?p=aak&id=%id%&b=5"> Агенты </a>
+ <a href="./index.php?p=aak&id=%id%&b=6"> Аренда(недоступные) </a>
+</div>
+

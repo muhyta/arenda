@@ -1,0 +1,34 @@
+%menu%
+<form action="./index.php" method="get" enctype="text/plain">
+	<input type="hidden" name="p" value="ec">
+	<input type="hidden" name="n" value="%num%">
+        <input type="hidden" name="id" value="%id%">
+	<input type="hidden" name="b" value="%baza%">
+	<div class="shadow" style="background-image:url('./img/fon.png');background-repeat:repeat;z-index:100;position:absolute;top:25%;left:30%;border:solid 1px;padding:10px;margin:2px;">
+		Дата проверки: <input type="text" name="date_edit" value="%date_edit%" disabled>
+		Дата добавления: <input type="text" name="date_insert" value="%date_insert%" disabled><br>
+		Фамилия Имя Отчество: <input type="text" name="mastername" size="32" value="%mastername%"><br>
+		№ Договора: <input type="text" name="d_num" value="%d_num%"><br>
+		Телефон: 8<input type="text" name="tel" value="%tel%"><br>
+		Район:
+		<select name="region" size="1">
+			%region%
+		</select>
+		Тип объекта:
+		<select name="tip_obj" size="1">
+			%type%
+		</select><br>
+		Стоимость/месяц: от <input type="text" name="min_tax" value="%min_tax%" size="6" maxlength="8"> до <input type="text" name="max_tax" value="%max_tax%" size="6" maxlength="8"><br>
+		<select name="ocup" size="1">
+			<option value="Заселен" %ocup1% >Заселен</option>
+			<option value="Заселен_нами" %ocup2%>Заселен через нас</option>
+			<option value="Незаселен" %ocup3%>Не заселен</option>
+		</select>
+		<input type="checkbox" name="nond" value="1" %nond% size="1"> н/о;н/д<br>
+		Коментарий:<br> 
+		<input class="com" type="textarea" rows="3" name="comments" value=%comment%><br>
+		<input type="checkbox" name="d" value="1"> Удалить?<br>
+		<div><input onclick="butclick(this)" class="butshadow" type="submit" name="submit" value="Сохранить"><a onclick="butclick(this)" class="butshadow" style="padding:1px 8px 1px 8px;" href="./index.php?p=aak&id=%id%&b=%baza%">Отмена</a></div>
+	</div>
+</form>
+%base%
