@@ -1,16 +1,17 @@
+<div style="position:fixed;right:8px;top:28px;">
+<input class="butshadow" type=button value="Добавить +" onclick="cl('./index.php?p=insert&%insert%')"></div>
 
-<div>
-<input style="background-image:url('./img/fon.png');border:2px solid;position:fixed;width:118px;height:24px;top:-2px;left:100px;z-index:2000;" type=button value="Фильтр" onclick="p()" id="plus">
-<input type=button value="Добавить" onclick="cl('./index.php?p=insert&%insert%')"></div>
-<div id='p' class="filter" style="display:none;">
+<div id='navig'>
+<div class='filter'>
 <form action="./index.php" method="get" enctype="text/plain">
         <input type="hidden" name="p" value="aak">
         <input type="hidden" name="id" value="%id%">
 	<input type="hidden" name="f" value="1">
+<span style="font-size:16px;">Фильтр</span></br>
 Статистика базы:<br>
 всего записей: %col_f% шт. <br>
 сегодня: +%col_d% шт. <br>
-<table style="border:none;">
+<table style="border:none;position:relative;">
 <tr><td style="text-align:right;border:none;width:auto;">Адрес:</td><td style="text-align:left;border:none;width:200px;"><input type=text name=by_adr style="width:100%;"></td></tr>
 <tr><td style="text-align:right;border:none;width:auto;">Телефон:</td><td style="border:none;text-align:left;width:200px;"><input type=text name=by_tel style="width:100%;"></td></tr>
 
@@ -23,8 +24,22 @@
 %tipo%</select></td></tr>
 
 </table>
-<div style="bottom:0px;"><input class="butshadow" type=submit name=s value="Применить"></div>
+<div id='f' style="bottom:0px;"><input class="butshadow" type=submit name=s value="Применить"></div>
 </form>
 <div><input class="butshadow" type=button value="Дубликаты" onclick="doubles(this)"></div><br>
-%admin%
+<div id='f'>%admin%</div>
 </div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+$('#navig').stop().animate({'marginTop':'0px'},1000);
+$('#navig').hover(
+        function () {$('div',$(this)).stop().animate({'marginTop':'-2px'},300);},
+        function () {$('div',$(this)).stop().animate({'marginTop':'-200px'},300);});
+$('#navig').stop().animate({'marginTop':'0px'},1000);
+$('#navig').hover(
+        function () {$('form',$(this)).stop().animate({'marginTop':'-10px'},300);},
+        function () {$('form',$(this)).stop().animate({'marginTop':'-320px'},300);});});
+</script>
+

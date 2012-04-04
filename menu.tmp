@@ -1,9 +1,26 @@
-<div class="menu">
- <a href="./index.php?p=aak&id=%id%&b=1"> Аренда(актив) </a>
- <a href="./index.php?p=aak&id=%id%&b=2"> Аренда(архив) </a>
- <a href="./index.php?p=aak&id=%id%&b=3"> Клиенты </a>
- <a href="./index.php?p=aak&id=%id%&b=4"> Новые Клиенты </a>
- <a href="./index.php?p=aak&id=%id%&b=5"> Агенты </a>
- <a href="./index.php?p=aak&id=%id%&b=6"> Аренда(недоступные) </a>
+<div id="menu">
+<ul id="mm" style="margin-top:-15px;padding-bottom:15px;">
+<li class="menu" style="left:300px;"><a class="aactive" href="./index.php?p=aak&id=%id%&b=1" title="Аренда(актив)"></a></li>
+<li class="menu" style="left:400px;"><a class="aarhiv" href="./index.php?p=aak&id=%id%&b=2" title="Аренда(архив)"></a></li>
+<li class="menu" style="left:500px;"><a class="cactive" href="./index.php?p=aak&id=%id%&b=3" title="Клиенты"></a></li>
+<li class="menu" style="left:600px;"><a class="carhiv" href="./index.php?p=aak&id=%id%&b=4" title="Новые Клиенты"></a></li>
+<li class="menu" style="left:700px;"><a class="agents" href="./index.php?p=aak&id=%id%&b=5" title="Агенты:"></a></li>
+<li class="menu" style="left:800px;"><a href="./index.php?p=aak&id=%id%&b=6" title="Аренда(недоступные)"></a></li>
+</ul>
 </div>
 
+<script>
+$(function() {
+ 
+ $('#mm a').stop().animate({'marginTop':'-80px'},1000);
+ 
+ $('#mm > li').hover(
+  function () {
+   $('a',$(this)).stop().animate({'marginTop':'-2px'},200);
+  },
+  function () {
+   $('a',$(this)).stop().animate({'marginTop':'-80px'},200);
+  }
+ );
+});
+</script>

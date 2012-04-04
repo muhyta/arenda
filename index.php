@@ -5,6 +5,7 @@
 
 <script src="./calendar.js"></script>
 <script src="./scripting.js"></script>
+<script src="./jquery.js"></script>
 
 <?php
 //--------------------------------variable-declaration
@@ -120,7 +121,7 @@ if ($w == "" or $w == " ") {$w="WHERE 1=1 ".$w;}
 		<td class='basetd'> Хозяин </td>
 			</tr>";
                 while ($r = pg_fetch_row($result)) {
-                       $base.="<tr onmouseover='cc_sel(this)' onmouseout='cc_des(this)' onclick='cl(\"./index.php?p=o&b=1&n=$r[0]&id=$id\")'>";
+                       $base.="<tr class='btr' onclick='cl(\"./index.php?p=o&b=1&n=$r[0]&id=$id\")'>";
                         if ($r[9]=="0" and $r[10]=="0") {$r[9]="Да";$r[10]="Нет";}
                                 elseif ($r[10]=="0" and $r[9] != "0") {$r[9]="c ".$r[9];$r[10]="Нет";}
                                 elseif ($r[9]=="0" and $r[10] != "0") {$r[9]=="Бронь";$r[10]="до ".$r[10];}
@@ -158,7 +159,7 @@ if ($w == "" or $w == " ") {$w="WHERE 1=1 ".$w;}
 		<td class='basetd'>Н/о|Н/д</td>
 			</tr>";
                 while ($r = pg_fetch_row($result)) {
-                       $base.="<tr onmouseover='cc_sel(this)' onmouseout='cc_des(this)' onclick='cl(\"./index.php?p=o&b=2&n=$r[0]&id=$id\")'>";
+                       $base.="<tr class='btr' onclick='cl(\"./index.php?p=o&b=2&n=$r[0]&id=$id\")'>";
                         if ($r[9]=="0" and $r[10]=="0") {$r[9]="Да";$r[10]="Нет";}
                                 elseif ($r[10]=="0" and $r[9] != "0") {$r[9]="c ".$r[9];$r[10]="Нет";}
                                 elseif ($r[9]=="0" and $r[10] != "0") {$r[9]=="Бронь";$r[10]="до ".$r[10];}
@@ -195,7 +196,7 @@ if ($w == "" or $w == " ") {$w="WHERE 1=1 ".$w;}
 				<td class='basetd'>SMS</td>
                         </tr>";
                 while ($r = pg_fetch_row($result)) {
-                        $base.="<tr onmouseover='cc_sel(this)' onmouseout='cc_des(this)' onclick='cl(\"./index.php?p=c&b=3&n=$r[0]&id=$id\")'>";
+                        $base.="<tr class='btr' onclick='cl(\"./index.php?p=c&b=3&n=$r[0]&id=$id\")'>";
                         for ($n=0;$n<14;$n++){
                                 if ($r[$n]=="t") {$r[$n]="√";} elseif ($r[$n]=="f") {$r[$n]="-";}
                                 if ($n==7 or $n==8 or $n==11 or $n==12){} else {$base.="<td><abbr title='$r[11]'>$r[$n]</abbr></td>";}}
@@ -215,7 +216,7 @@ if ($w == "" or $w == " ") {$w="WHERE 1=1 ".$w;}
                                 <td class='basetd'>н/д или н/о</td>
                         </tr>";
                 while ($r = pg_fetch_row($result)) {
-                        $base.="<tr onmouseover='cc_sel(this)' onmouseout='cc_des(this)' onclick='cl(\"./index.php?p=c&b=4&n=$r[0]&id=$id\")'>";
+                        $base.="<tr class='btr' onclick='cl(\"./index.php?p=c&b=4&n=$r[0]&id=$id\")'>";
                         for ($n=0;$n<13;$n++){
                                 if ($r[$n]=="t") {$r[$n]="√";} elseif ($r[$n]=="f") {$r[$n]="-";}
                                 if ($n==4 or $n==7 or $n==8 or $n==11 or $n==12){} else {$base.="<td><abbr title='$r[11]'>$r[$n]</abbr></td>";}}
@@ -245,7 +246,7 @@ $today=date('Y-m-d');
 //foreach($_REQUEST as $key => $value) {$_REQUEST[$key] = htmlspecialchars($value);}
 $page=htmlspecialchars($_REQUEST['p']);
 if ($page=="aar" or $page=="ca" or $page=="car") {$page="aak";}
-$dbconn = pg_connect("host=127.0.0.1 port=5432 dbname=xgb user=xgb password=xgb") or die('connection failed');
+$dbconn = pg_connect("host=127.0.0.1 port=5432 dbname=xgb_ar_azbuka user=xgb_ar_azbuka password=c52f3cbb") or die('connection failed');
 //---------------------------------------auth
 $login=htmlspecialchars($_REQUEST['l']);
 $pass=htmlspecialchars($_REQUEST['pw']);
@@ -267,7 +268,7 @@ elseif (strlen($id)==32 and strlen($login)==0) {
         $rs=pg_query($dbconn,$query);
 	while($ps=pg_fetch_array($rs)) {
 		$login=$ps[0];
-		echo "<div style='position:absolute;left:5px;top:5px;border:solid 1px;padding:2px;'>$login</div>";
+		echo "<div class='butshadow' style='position:fixed;right:10px;top:5px;padding:2px 7px 2px 7px;'>$login</div>";
 		if (strlen($login)>4) {
 			$id=md5(rand(0,99999999));
 			$query="UPDATE mngusrs SET uid='$id' WHERE name='$login';";

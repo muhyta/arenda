@@ -1,7 +1,7 @@
 div {
 font-size:12px;
-
 }
+
 body {
 background-image: url('./img/fon.png');
 background-repeat: repeat;
@@ -17,44 +17,35 @@ font-size:12px;
 a {
 font-size:12px;
 text-decoration: none;
-margin:3px;
-color:black;
 }
 
 a:hover {
 text-decoration: none;
-color:white;
-text-shadow: black 1px 1px 3px;
-text-align:center;
 }
 
 a:visited {
 text-decoration: none;
-margin:3px;
-color:black;
 }
 
-input {
+input, select {
 width:auto;
 font-size:12px;
 text-decoration: none;
-border: dotted 1pt;
+text-align: center;
 color:black;
-background-color:#8ff08f;
-}
-
-select {
-font-size:12px;
-text-decoration: none;
-border: dotted 1px;
-color:black;
-background-color:#8ff08f;
-}
-
-.menu {
-text-shadow: white 2px 2px 2px;
-text-align:center;
-top:0px;
+background-color:white;
+        border: solid 1px gray;
+        -moz-border-radius:5px 5px 5px 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -khtml-border-bottom-right-radius: 5px;
+        -khtml-border-top-right-radius: 5px;
+        -khtml-border-bottom-left-radius: 5px;
+        -khtml-border-top-left-radius: 5px;
+        text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
 }
 
 tr {
@@ -63,7 +54,23 @@ cursor: pointer;
 
 .basetd {
 text-align:center;
-border: solid 1px #8ff08f;
+border: solid 1px green;
+}
+
+.btr:hover {
+	background-image:url('./img/green_dust.png');
+/*	border: solid 1px gray;
+        -moz-border-radius:5px 5px 5px 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -khtml-border-bottom-right-radius: 5px;
+        -khtml-border-top-right-radius: 5px;
+        -khtml-border-bottom-left-radius: 5px;
+        -khtml-border-top-left-radius: 5px;
+        text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);*/
 }
 
 .filtertd {
@@ -83,29 +90,104 @@ abbr {
 
 }
 
-.filter {
-box-shadow: 0px 0px 10px 1px black;
--moz-box-shadow: 0px 0px 10px 1px black;
--webkit-box-shadow: 0px 0px 10px 1px black;
-z-index:100;
-background-image: url('./img/green_dust.png');
-background-repeat:repeat;
-position:absolute;
-left:10px;
-top:-2px;
-border:solid 1px;
-padding:10px;
-}
-
 .shadow {
-box-shadow: 0px 0px 20px 2px black;
--moz-box-shadow: 0px 0px 20px 2px black;
--webkit-box-shadow: 0px 0px 20px 2px black;
+	background-image:url('./img/green_dust.png');
+        -moz-border-radius:10px 10px 10px 10px;
+        -webkit-border-bottom-right-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+        -webkit-border-bottom-left-radius: 10px;
+        -khtml-border-bottom-right-radius: 10px;
+	-khtml-border-top-right-radius: 10px;
+	-khtml-border-top-left-radius: 10px;
+        -khtml-border-bottom-left-radius: 10px;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
 }
 
 .butshadow {
-border: solid 1px gray;
-box-shadow: 0px 0px 8px 1px black;
--moz-box-shadow: 0px 0px 8px 1px black;
--webkit-box-shadow: 0px 0px 8px 1px black;
+	background-color:white;
+	border: solid 1px gray;
+        -moz-border-radius:5px 5px 5px 5px;
+        -webkit-border-bottom-right-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -khtml-border-bottom-right-radius: 5px;
+	-khtml-border-top-right-radius: 5px;
+        -khtml-border-bottom-left-radius: 5px;
+	-khtml-border-top-left-radius: 5px;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+	box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
 }
+
+div#navig, .menu {
+	position:fixed;
+	z-index:11100;
+	background-image: url('./img/fon.png');
+	background-repeat:repeat;
+	left:10px;
+	top:0px;
+	border:solid 1px;
+	padding:10px;
+	display: block;
+	margin-top: 0px;
+/*    background-color:#CFCFCF;
+    background-repeat:no-repeat;
+    background-position:center center;*/
+	border:1px solid #AFAFAF;
+	-moz-border-radius:0px 0px 10px 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-khtml-border-bottom-right-radius: 10px;
+	-khtml-border-bottom-left-radius: 10px;
+    /*-moz-box-shadow: 0px 4px 3px #000;
+    -webkit-box-shadow: 0px 4px 3px #000;
+    */
+	opacity: 1;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+	text-align:center;
+	-moz-box-shadow: 2px 2px 10px #000;
+	-webkit-box-shadow: 2px 2px 10px #000;
+}
+
+ul#mm {
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    top: 10px;
+    left: 0px;
+    list-style: none;
+    z-index:9999;
+}
+
+ul#mm li {
+	background-color:white;
+	background-image:none;
+    width:70px;
+    -moz-box-shadow: 2px 2px 10px #000;
+    -webkit-box-shadow: 2px 2px 10px #000;
+}
+
+ul#mm li a {
+    display: block;
+    margin-top: -2px;
+    width: 70px;
+    height:70px;
+    background-repeat:no-repeat;
+	background-position:center center;
+    -moz-border-radius:0px 0px 10px 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -khtml-border-bottom-right-radius: 10px;
+    -khtml-border-bottom-left-radius: 10px;
+    opacity: 0.6;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+}
+
+.aactive {background-image:url('./img/aa.png');}
+.aarhiv {background-image:url('./img/book.png');}
+.cactive {background-image:url('./img/man-ak.png');}
+.carhiv {background-image:url('./img/man-ar.png');}
+.agents {background-image:url('./img/agents.png');}
+

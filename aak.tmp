@@ -1,7 +1,7 @@
 <div>
 	%menu%
 </div>
-<div style="">
+<div style="margin-top:50px;">
 	%filter%
 	%base%
 </div>

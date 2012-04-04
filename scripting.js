@@ -1,5 +1,5 @@
-function cc_sel(el) {el.style.backgroundColor = '#fcfc81';}
-function cc_des(el) {el.style.backgroundColor = 'transparent';}
+/*function cc_sel(el) {el.style.backgroundColor = '#fcfc81';}
+function cc_des(el) {el.style.backgroundColor = 'transparent';}*/
 function cl(href){location.href=href;}
 function doubles(el) {
         el.style.backgroundColor = '#0FC0C0';

@@ -6,7 +6,7 @@
 <input type="hidden" id="b" name="b" value="1">
 <input type="hidden" name="id" value="%id%">
 
-<div style="background-image:url('./img/fon.png');background-repeat:repeat;border:solid 1px;padding:10px;margin:2px;z-index:100;position:absolute;top:25%;left:28%;">
+<div class="shadow" style="background-image:url('./img/fon.png');background-repeat:repeat;border:solid 1px;padding:10px;margin:2px;z-index:100;position:absolute;top:25%;left:28%;">
 <input type="button" id="insbt1" onclick="insvk(ins1,ins2,this,insbt2)" value="Объекты" style="background-color:green;">
 <input type="button" id="insbt2" onclick="insvk(ins2,ins1,this,insbt1)" value="Клиенты" style="background-color:grey;">
 
@@ -55,7 +55,7 @@
 
 <div>
 <input type="submit" name="submit" value="Добавить объект" %result%>
-<a style="border:none;" href="./index.php?p=aak&id=%id%">Отмена</a></div>
+<a class="butshadow" style="padding:1px 10px 1px 10px;" href="./index.php?p=aak&id=%id%">Отмена</a></div>
 </div>
 </div>
 </form>
