@@ -6,5 +6,10 @@ This project was made special for company, that collecting and selling informati
 It's simple and will be changing according to needs.
 TODO list: SMS-information, send via 3G-modem+gnokii to clients.
 
+version-changes:
+2.0
+- api2gis in edit object form;
+- visualizations;
+
 Best regards.
 muhyta.
