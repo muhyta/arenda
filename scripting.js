@@ -6,8 +6,8 @@ function doubles(el) {
         var div = document.getElementById('z');
         var elems = div.getElementsByTagName('abbr');
         var k=0;
-        for(var i=8; i<elems.length; i=i+11) {
-                for (var j=8; j<elems.length;j=j+11) {
+        for(var i=8; i<elems.length; i=i+10) {
+                for (var j=10; j<elems.length;j=j+10) {
                         if (i != j) {if (elems[i].innerHTML==elems[j].innerHTML) {elems[j].style.textShadow='#ff0000 -1px -1px 3px,red 1px 1px 3px';k++;}}}}
         alert('Дубликатов: '+ k/2);}
 function butclick(el) {el.style.boxShadow='0px 0px 2px 1px black';}

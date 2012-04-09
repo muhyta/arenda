@@ -5,57 +5,56 @@
 <input type="hidden" name="p" value="insert">
 <input type="hidden" id="b" name="b" value="1">
 <input type="hidden" name="id" value="%id%">
-
-<div class="shadow" style="background-image:url('./img/fon.png');background-repeat:repeat;border:solid 1px;padding:10px;margin:2px;z-index:100;position:absolute;top:25%;left:28%;">
-<input type="button" id="insbt1" onclick="insvk(ins1,ins2,this,insbt2)" value="Объекты" style="background-color:green;">
-<input type="button" id="insbt2" onclick="insvk(ins2,ins1,this,insbt1)" value="Клиенты" style="background-color:grey;">
-
-<div id="ins1">
-<table style="border:none;">
-<tr><td>Дата проверки:</td><td><input type="text" name="date_edit" value="%date_edit%" disabled></td>
-<td>Дата добавления:</td><td><input type="text" name="date_insert" value="%date_insert%" disabled></tr>
-<tr><td>Тип объекта:</td><td><select name="tip_obj1" size="1"><option value="" selected>Выберите тип</option>%type%</select></td>
-<td>Район:</td><td><select name="region1" size="1"><option value="" selected>Выберите район</option>%region%</select></td></tr>
-<tr><td>Имя хозяина:</td><td><input type="text" name="mastername1"></td>
-<td>Адрес:</td><td><input type="text" name="address1" value="Введите адрес" size="32" maxlength="128"></td></tr>
-<tr><td>Стоимость/месяц:</td><td><input type="text" name="tax1" value="0" size="6" maxlength="8"></td>
-<td>Телефон:</td><td>8<input type="text" name="tel1" size="11" maxlength="12"></td></tr>
-<tr><td><input type="checkbox" name="agent1" value="1" size="1"> Агент</td><td></td><td></td><td></td></tr>
-<tr><td><input type="checkbox" name="free1" value="1" checked> Свободно</td><td></td><td></td><td></td></tr>
-<tr><td><input type="checkbox" name="ocup1" value="1"> Сдана до</td><td><input onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" type="text" name="ocup_date1" value="%date_ocup%"></td><td></td><td></td></tr>
-<tr><td><input type="checkbox" name="bron1" value="1"> Бронь до</td><td><input onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" type="text" name="bron_date1" value="%date_bron%"></td><td></td><td></td></tr>
-<tr><td><input type="checkbox" name="nond1" value="1" checked size="1"> н/о;н/д</td><td></td><td></td><td></td></tr>
-<tr><td>Источник:</td><td><input type="text" name="src" style="width:300px;"></td></tr>
-<tr><td>Описание:</td><td></td><td></td><td></td></tr>
-</table>
-<input type="textarea" class="com" name="comments1" style="width:500px;">
-</div>
-
-<div id="ins2" style="display:none;">
-<table style="border:none;">
-<tr><td>Дата проверки:</td><td><input type="text" name="date_edit" value="%date_edit%" disabled></td>
-<td>Дата добавления:</td><td><input type="text" name="date_insert" value="%date_insert%" disabled></td></tr>
-<tr><td>Фамилия Имя Отчество:</td><td><input type="text" name="mastername2" size="32"></td>
-<td>№ Договора:</td><td><input type="text" name="d_num2"></td></tr>
-<tr><td>Телефон:</td><td>8<input type="text" name="tel2"></td>
-<td>Район:</td><td><select name="region2" size="1"><option value="" selected>Выберите район</option>%region%</select></td></tr>
-<tr><td>Тип объекта:</td><td><select name="tip_obj2" size="1"><option value="" selected>Выберите тип</option>%type%</select></td>
-<td>Стоимость/месяц:</td><td>от <input type="text" name="min_tax2" value="0" size="6" maxlength="8"> до <input type="text" name="max_tax2" value="0" size="6" maxlength="8"></td></tr>
-<tr><td><select name="ocup2" size="1">
-	<option value="Заселен" >Заселен</option>
-        <option value="Заселен_нами">Заселен через нас</option>
-        <option value="Незаселен" selected>Не заселен</option>
-</select></td><td></td><td></td><td>SMS <input type="number" value="0" name="sms2" size="2"></td></tr>
-<tr><td><input type="checkbox" name="nond2" value="1" checked size="1"> н/о;н/д</td></tr>
-<tr><td>Коментарий:</td></tr>
-</table>
-<input class="com" type="textarea" name="comments2" style="width:500px;"><br>
-</div>
-
-
-<div>
-<input type="submit" name="submit" value="Добавить объект" %result%>
-<a class="butshadow" style="padding:1px 10px 1px 10px;" href="./index.php?p=aak&id=%id%">Отмена</a></div>
-</div>
+<div class="shadow" style="background-image:url('./img/fon.png');background-repeat:repeat;border:solid 1px;padding:10px;margin:2px;z-index:100;position:absolute;top:25%;left:15%;right:15%;">
+	<input type="button" id="insbt1" onclick="insvk(ins1,ins2,this,insbt2)" value="Объекты" style="background-color:green;">
+	<input type="button" id="insbt2" onclick="insvk(ins2,ins1,this,insbt1)" value="Клиенты" style="background-color:grey;">
+	<div id="ins1">
+		<table style="border:none;">
+			<tr><td>Дата проверки:</td><td><input type="text" name="date_edit" value="%date_edit%" disabled></td>
+			<td>Дата добавления:</td><td><input type="text" name="date_insert" value="%date_insert%" disabled></tr>
+			<tr><td>Тип объекта:</td><td><select name="tip_obj1" size="1"><option value="" selected>Выберите тип</option>%type%</select></td>
+			<td>Район:</td><td><select name="region1" size="1"><option value="" selected>Выберите район</option>%region%</select></td></tr>
+			<tr><td>Имя хозяина:</td><td><input type="text" name="mastername1"></td>
+			<td>Адрес:</td><td><input type="text" name="address1" value="Введите адрес" size="32" maxlength="128"></td></tr>
+			<tr><td>Стоимость/месяц:</td><td><input type="text" name="tax1" value="0" size="6" maxlength="8"></td>
+			<td>Телефон:</td><td><input type="text" name="tel1" size="11" maxlength="12"></td></tr>
+			<tr><td><input type="checkbox" name="agent1" value="1" size="1"> Агент</td><td></td><td></td><td></td></tr>
+			<tr><td><input type="checkbox" name="free1" value="1" checked> Свободно</td><td></td><td></td><td></td></tr>
+			<tr><td><input type="checkbox" name="ocup1" value="1"> Сдана до</td><td><input onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" type="text" name="ocup_date1" value="%date_ocup%"></td><td></td><td></td></tr>
+			<tr><td><input type="checkbox" name="bron1" value="1"> Бронь до</td><td><input onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" type="text" name="bron_date1" value="%date_bron%"></td><td></td><td></td></tr>
+			<tr><td><input type="checkbox" name="nond1" value="1" checked size="1"> н/о;н/д</td><td></td><td></td><td></td></tr>
+			<tr><td>Источник:</td><td><input type="text" name="src" style="width:300px;"></td></tr>
+			<tr><td>Описание:</td><td><input type="textarea" class="com" name="comments1" style="width:500px;"></td><td></td><td></td></tr>
+		</table>
+		<br>
+		<input type="file" name="img[]"><br>
+		<input type="file" name="img[]"><br>
+		<input type="file" name="img[]"><br>
+		<input type="file" name="img[]"><br>
+	</div>
+	<div id="ins2" style="display:none;">
+		<table style="border:none;">
+			<tr><td>Дата проверки:</td><td><input type="text" name="date_edit" value="%date_edit%" disabled></td>
+			<td>Дата добавления:</td><td><input type="text" name="date_insert" value="%date_insert%" disabled></td></tr>
+			<tr><td>Фамилия Имя Отчество:</td><td><input type="text" name="mastername2" size="32"></td>
+			<td>№ Договора:</td><td><input type="text" name="d_num2"></td></tr>
+			<tr><td>Телефон:</td><td><input type="text" name="tel2"></td>
+			<td>Район:</td><td><select name="region2" size="1"><option value="" selected>Выберите район</option>%region%</select></td></tr>
+			<tr><td>Тип объекта:</td><td><select name="tip_obj2" size="1"><option value="" selected>Выберите тип</option>%type%</select></td>
+			<td>Стоимость/месяц:</td><td><input type="text" name="min_tax2" value="0" size="6" maxlength="8"><input type="text" name="max_tax2" value="99999" size="6" maxlength="8"></td></tr>
+			<tr><td><select name="ocup2" size="1">
+				<option value="Заселен" >Заселен</option>
+			        <option value="Заселен_нами">Заселен через нас</option>
+			        <option value="Незаселен" selected>Не заселен</option>
+			</select></td><td></td><td></td><td>SMS <input type="number" value="0" name="sms2" size="2"></td></tr>
+			<tr><td><input type="checkbox" name="nond2" value="1" checked size="1"> н/о;н/д</td></tr>
+			<tr><td>Коментарий:</td></tr>
+		</table>
+		<input class="com" type="textarea" name="comments2" style="width:500px;"><br>
+	</div>
+	<div>
+		<input type="submit" name="submit" value="Добавить объект" %result%>
+		<input type="button" onclick="cl('./index.php?p=aak&id=%id%')" value="Отмена"></div>
+	</div>
 </div>
 </form>

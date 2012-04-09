@@ -1,3 +1,32 @@
+<script>
+        DG.autoload(function() { 
+            var myMap = new DG.Map('mapid'); 
+            myMap.controls.add(new DG.Controls.Zoom()); 
+            DG.Geocoder.get('%city% %street%', {types: ['city','street'],limit: 1,
+                success: function(geocoderObjects) {
+                        for(var i = 0, len = geocoderObjects.length; i < len; i++) {
+                                var geocoderObject = geocoderObjects[i];
+                                var markerIcon = new DG.Icon('./img/aa.png', new DG.Size(10, 8));
+                                var marker = geocoderObject.getMarker(markerIcon, (function(geocoderObject) {
+                                        return function () {
+                                                var info = '';
+                                                info += 'Type: ' + geocoderObject.getType() + '\\n';
+                                                info += 'Name: ' + geocoderObject.getName() + '\\n';
+                                                info += 'Short name: ' + geocoderObject.getShortName() + '\\n';
+                                                var attributes = geocoderObject.getAttributes();
+                                                for (var attribute in attributes) {
+                                                        if (attributes.hasOwnProperty(attribute)) {
+                                                                info += attribute + ': ' + attributes[attribute] + '\\n';}}
+                                                var centerGeoPoint = geocoderObject.getCenterGeoPoint();
+                                                info += 'Longitude: ' + centerGeoPoint.getLon() + '\\n';
+                                                info += 'Latitude: ' + centerGeoPoint.getLat();
+                                                alert (info);}})(geocoderObject));
+                                myMap.markers.add(marker);}
+                                myMap.setCenter(geocoderObject.getCenterGeoPoint(), 15);},
+                failure: function(code, message) {
+                        alert(code + ' ' + message);}});});
+</script>
+
 %menu%
 %filter%
 %base%
@@ -7,29 +36,57 @@
         <input type="hidden" name="id" value="%id%">
         <input type="hidden" name="b" value="%baza%">
 	<input type="hidden" name="date_insert" value="%date_insert%">
-	<div class="shadow" style="background-image:url('./img/fon.png');background-repeat:repeat;z-index:100;position:absolute;top:25%;left:30%;border:solid 1px;padding:10px;margin:2px;">
-<table border="0" style="text-align:left;border:none;vertical-align:top;">
-<tr><td style="width:100px;">Дата проверки:</td><td style="width:100px;"><input type="text" name="date_edit" value="%date_edit%" disabled></td>
-<td style="width:100px;">Дата добавления:</td><td style="width:100px;"><input type="text" name="date_insert" value="%date_insert%" disabled></td></tr>
-<tr><td>Тип объекта:</td><td><select name="tip_obj" ><option value="">Выберите тип</option>%type%</select></td>
-<td>Район:</td><td><select name="region" size="1"><option value="">Выберите район</option>%region%</select></td></tr>
-<tr><td>Имя хозяина:</td><td><input type="text" name="mastername" value="%mastername%"></td>
-<td>Адрес:</td><td><input type="text" name="address" value="%adress%" maxlength="128"></td></tr>
-<tr><td>Стоимость/месяц:</td><td><input type="text" name="tax" value="%tax%" maxlength="8"></td>
-<td>Телефон:</td><td>8<input type="text" name="tel" value="%tel%" maxlength="12"></td></tr>
-<tr><td><input type="checkbox" name="agent" value="1" %agent%> Агент<br>
-	<input type="checkbox" name="free" value="1" %free%> Свободно<br>
-	<input type="checkbox" name="ocup" value="1" %ocup%> Сдана до<br>
-	<input type="checkbox" name="bron" value="1" %bron%> Бронь до<br>
-	<input type="checkbox" name="nond" value="1" %nond% size="1"> н/о;н/д</td>
-<td><br><br>
-<input onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" type="text" name="ocup_date" value="%date_ocup%"><br>
-<input onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" type="text" name="bron_date" value="%date_bron%"></td></tr>
-<tr><td>Источник:</td><td><input type="text" name="src" value="%src%"></td></tr>
-<tr><td>Описание:</td></tr>
-</table> 
-<input style="width:400px;word-wrap:break-word;vertical-align:top;text-align:left;" type="text" raws="3" name="comments" value="%comment%"><br>
-<input type="checkbox" name="d" value="1"> Удалить?<br>
-<div><input onclick="butclick(this)" class="butshadow" type="submit" name="submit" value="Сохранить"><a onclick="butclick(this)" class="butshadow" style="padding:1px 8px 1px 8px;" href="./index.php?p=aak&id=%id%&b=%baza%">Отмена</a></div>
+<div class="shadow" style="z-index:100;position:absolute;top:15%;left:15%;right:15%;padding:10px;margin:2px;box-shadow: 3px 3px 3px #000;">
+	<div style="border:none;">
+		<div style="padding-right:10px;float:left;width:33%;text-align:left;">
+			<div style="float:left;width:50%;line-height:23px;">
+				Дата проверки:<br>
+				Дата добавления:<br>
+				Тип объекта:<br>
+				Район:<br>
+				Имя хозяина:<br>
+				Адрес:<br>
+				Стоимость/месяц:<br>
+				Телефон:<br>
+				<input type="checkbox" name="ocup" value="1" %ocup%> Сдана до<br>
+				<input type="checkbox" name="bron" value="1" %bron%> Бронь до<br>
+				<input type="checkbox" name="agent" value="1" %agent%> Агент<br>
+				<input type="checkbox" name="free" value="1" %free%> Свободно<br>
+				<input type="checkbox" name="nond" value="1" %nond% size="1"> н/о;н/д<br>
+			</div>
+			<div style="float:right;width:50%;">
+				<input type="text" name="date_edit" value="%date_edit%" disabled></br>
+				<input type="text" name="date_insert" value="%date_insert%" disabled></br>
+				<select name="tip_obj"><option value="">Выберите тип</option>%type%</select></br>
+				<select name="region" size="1"><option value="">Выберите район</option>%region%</select></br>
+				<input type="text" name="mastername" value="%mastername%"></br>
+				<input type="text" name="address" value="%adress%" maxlength="128"></br>
+				<input type="text" name="tax" value="%tax%" maxlength="8"></br>
+				<input type="text" name="tel" value="%tel%" maxlength="12"></br>
+				<input onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" type="text" name="ocup_date" value="%date_ocup%"><br>
+				<input onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" type="text" name="bron_date" value="%date_bron%"><br>
+			</div>
+			<div style="float:left;width:100%;">
+                                <div style="border:1px dotted gray;">Источник:</br>
+                                <input style="word-wrap:break-word;vertical-align:top;text-align:left;" type="text" name="src" value="%src%"></div>
+				<div style="border:1px dotted gray;">Описание:</br>
+                                <input style="word-wrap:break-word;vertical-align:top;text-align:left;" type="text" raws="3" name="comments" value="%comment%">
+				</div>
+			</div>
+		</div>
+		<div id="mapid" style="text-align:center;width:30%;height:300px;float:left;">
+		</div>
+		<div style="float:right;width:33%;text-align:right;">
+			<div>
+			%image1
+			%image2
+			%image3
+			%image4
+			</div>
+		</div>
+	<input class="butshadow" type="submit" name="submit" value="Сохранить">
+	<input type="button" class="butshadow" onclick="cl('./index.php?p=aak&id=%id%&b=%baza%')" value="Отмена">
+	</div>
 </div>
 </form>
+

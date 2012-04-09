@@ -1,8 +1,8 @@
 <html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /><meta name='description' content='Азбука Жилья БД' />
 <title>Азбука Жилья БД</title>
 <link rel="stylesheet" type="text/css" href="./style.css">
+<script type="text/javascript" src="http://maps.api.2gis.ru/1.0"></script> 
 </head><body>
-
 <script src="./calendar.js"></script>
 <script src="./scripting.js"></script>
 <script src="./jquery.js"></script>
@@ -129,16 +129,16 @@ if ($w == "" or $w == " ") {$w="WHERE 1=1 ".$w;}
 			for ($n=0;$n<14;$n++){
                                 if ($r[$n]=="t") {$r[$n]="√";} 
 				if ($r[$n]=="f") {$r[$n]="-";}}
-			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[0]</abbr></td>";//#
-			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[1]</abbr></td>";//Дата правки
-			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[2]</abbr></td>";//Дата ввода
-			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[3]</abbr></td>";//Тип
-			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[12]</abbr></td>";//Район
-			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[6]</abbr></td>";//Адрес
-			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[5]</abbr></td>";//Цена
-			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[10]</abbr></td>";//Бронь
-			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>(+7)$r[7]</abbr></td>";//Телефон
-			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[4]</abbr></td>";//Хозяин
+			$base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[0]</abbr></td>";//#
+			$base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[1]</abbr></td>";//Дата правки
+			$base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[2]</abbr></td>";//Дата ввода
+			$base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[3]</abbr></td>";//Тип
+			$base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[12]</abbr></td>";//Район
+			$base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[6]</abbr></td>";//Адрес
+			$base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[5]</abbr></td>";//Цена
+			$base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[10]</abbr></td>";//Бронь
+			$base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>(+7)$r[7]</abbr></td>";//Телефон
+			$base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[4]</abbr></td>";//Хозяин
 //			$base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[13]</abbr></td>";//Но-нд
 			$base.="</tr>";}
                 $base.="</table>";
@@ -167,17 +167,17 @@ if ($w == "" or $w == " ") {$w="WHERE 1=1 ".$w;}
                          for ($n=0;$n<14;$n++){
                                 if ($r[$n]=="t") {$r[$n]="√";} 
                                 if ($r[$n]=="f") {$r[$n]="-";}}
-                       $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[0]</abbr></td>";//#
-                        $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[1]</abbr></td>";//Дата правки
-                        $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[2]</abbr></td>";//Дата ввода
-                        $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[3]</abbr></td>";//Тип
-                        $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[12]</abbr></td>";//Район
-                        $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[6]</abbr></td>";//Адрес
-                        $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[5]</abbr></td>";//Цена
-                        $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[9]</abbr></td>";//Бронь
-                        $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>(+7)$r[7]</abbr></td>";//Телефон
-                        $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[4]</abbr></td>";//Хозяин
-                        $base.="<td class='basetd'><abbr title='Агент:$r[8]; Описание:$r[11]'>$r[13]</abbr></td>";//Но-нд
+                       $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[0]</abbr></td>";//#
+                        $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[1]</abbr></td>";//Дата правки
+                        $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[2]</abbr></td>";//Дата ввода
+                        $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[3]</abbr></td>";//Тип
+                        $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[12]</abbr></td>";//Район
+                        $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[6]</abbr></td>";//Адрес
+                        $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[5]</abbr></td>";//Цена
+                        $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[9]</abbr></td>";//Бронь
+                        $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>(+7)$r[7]</abbr></td>";//Телефон
+                        $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[4]</abbr></td>";//Хозяин
+                        $base.="<td class='basetd'><abbr title='Агент: $r[8]\nОписание: $r[11]'>$r[13]</abbr></td>";//Но-нд
 			$base.="</tr>";}
                 $base.="</table>";
 		break;
@@ -390,6 +390,8 @@ switch ($page) {
                         case "1":$b="objects";
 		                $date_edit=$today;
 	        	        $date_insert=$today;
+				for ($i=0;$i<5;$i++) 
+					if (isset($_FILE['img']['name'][$i])) copy($_FILES['img']['tmp_name'][$i],"./foto/");
 	                	$type_object=$_REQUEST['tip_obj1'];
 		                $mastername=$_REQUEST['mastername1'];
 		                $adress=$_REQUEST['address1'];
@@ -491,7 +493,7 @@ switch ($page) {
         case "o":
                 $n=$_REQUEST['n'];
 		$b=$_REQUEST['b'];
-                $top=file_get_contents ('edit-obj.tmp');
+                $top = file_get_contents ('edit-obj.tmp');
                 $top = str_ireplace("%id%",$id,$top);
 		$top = str_ireplace("%baza%",$b,$top);
 		switch ($b) {
@@ -508,6 +510,15 @@ switch ($page) {
                 $top = str_ireplace("%num%",$r['obj_id'],$top);
                 $top = str_ireplace("%filter%",$filter,$top);
 		$top = str_ireplace("%src%",$r['src'],$top);
+		$street = substr($r['adress'],0,strpos($r['adress']," "));
+		if ($street == NULL) $street = $r['adress']; 
+		$top = str_ireplace("%city%","Тюмень",$top);
+		$top = str_ireplace("%street%",$street,$top);
+		for ($i=1;$i<=4;$i++) {
+			$fname="./foto/".$n."/".$i.".jpg";
+			if (file_exists($fname))
+				$top = str_ireplace("%image".$i,"<img style='width:49%;height:auto;' src='$fname'>",$top); 
+			else $top = str_ireplace("%image".$i,"<img style='width:49%;height:auto;' src='./foto/noimg.jpg'>",$top);}
 
 		$base=show_base($b,$query_f,$query_o,$dbconn,$id);
 		$top = str_ireplace("%base%",$base,$top);$base="";
