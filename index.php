@@ -246,7 +246,7 @@ $today=date('Y-m-d');
 //foreach($_REQUEST as $key => $value) {$_REQUEST[$key] = htmlspecialchars($value);}
 $page=htmlspecialchars($_REQUEST['p']);
 if ($page=="aar" or $page=="ca" or $page=="car") {$page="aak";}
-$dbconn = pg_connect("host=127.0.0.1 port=5432 dbname=xgb_ar_azbuka user=xgb_ar_azbuka password=c52f3cbb") or die('connection failed');
+$dbconn = pg_connect("host=127.0.0.1 port=5432 dbname=ka user=ka password=bb") or die('connection failed');
 //---------------------------------------auth
 $login=htmlspecialchars($_REQUEST['l']);
 $pass=htmlspecialchars($_REQUEST['pw']);
