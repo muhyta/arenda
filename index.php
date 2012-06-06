@@ -246,7 +246,7 @@ $today=date('Y-m-d');
 //foreach($_REQUEST as $key => $value) {$_REQUEST[$key] = htmlspecialchars($value);}
 $page=htmlspecialchars($_REQUEST['p']);
 if ($page=="aar" or $page=="ca" or $page=="car") {$page="aak";}
-$dbconn = pg_connect("host=127.0.0.1 port=5432 dbname=xgb_ar_azbuka user=xgb_ar_azbuka password=c52f3cbb") or die('connection failed');
+$dbconn = pg_connect("host=127.0.0.1 port=5432 dbname=db user=usr password=passwd") or die('connection failed');
 //---------------------------------------auth
 $login=htmlspecialchars($_REQUEST['l']);
 $pass=htmlspecialchars($_REQUEST['pw']);
@@ -390,8 +390,6 @@ switch ($page) {
                         case "1":$b="objects";
 		                $date_edit=$today;
 	        	        $date_insert=$today;
-				for ($i=0;$i<5;$i++) 
-					if (isset($_FILE['img']['name'][$i])) copy($_FILES['img']['tmp_name'][$i],"./foto/");
 	                	$type_object=$_REQUEST['tip_obj1'];
 		                $mastername=$_REQUEST['mastername1'];
 		                $adress=$_REQUEST['address1'];
@@ -411,6 +409,21 @@ switch ($page) {
 		                $top = str_ireplace("%date_bron%","",$top);
 		                $top = str_ireplace("%id%",$id,$top);
 		                $top=str_ireplace("%baza%",$b,$top);
+				//hereup
+				if (isset($_FILES)) {
+					$query="SELECT MAX(obj_id) FROM objects;";
+					$result=pg_query($dbconn,$query);
+					$up_dir=pg_fetch_row($result);
+					var_dump($_FILES['img']);
+					$up_dir[0]++;
+				foreach ($_FILES['img']['error'] as $key => $error) {
+					if ($error == UPLOAD_ERR_OK) {
+						$tmp_name = $_FILES['img']['tmp_name'][$key];
+						$name = $_FILES['img']['name'][$key];
+						$name = `mkdir ./foto/$up_dir[0]`;
+						var_dump($name);
+						$name=$key+1;
+						move_uploaded_file($tmp_name, "foto/$up_dir[0]/$name.jpg");}}}
 		                $query="SELECT * FROM type;";
 		                $result=pg_query($dbconn,$query);
 		                while ($r1 = pg_fetch_row($result)) {$base.="<option value='$r1[0]'>$r1[0]</option>";}
@@ -612,9 +625,11 @@ switch ($page) {
                         case "2":$b="objects_arh";break;
                         default:$b="objects";break;}
                 if ($d=="1") {
+			$query=`rm -rf ./foto/$n`;
                         $query="DELETE FROM $b WHERE obj_id='$n';";
                         pg_query($dbconn,$query);
-                        $base="<br><br><a href='./index.php?p=aak&id=$id&b=$b'>Запись успешно удалена. Вернутся к списку.</a>";
+                        $base="<br><br><a href='./index.php?p=aak&id=$id&b=$b'>Запись успешно удалена. Вернутся к списку.</a><br>
+				<script type='text/javascript'>document.location.href = './index.php?p=aak&id=$id&b=$b';</script>";
                         $top.=$base;
                         break;}
                 else {$base="something wrong ".$d." end";}

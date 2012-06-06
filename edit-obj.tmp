@@ -84,6 +84,7 @@
 			%image4
 			</div>
 		</div>
+	<input type="checkbox" name="d" value="1">Удалить?
 	<input class="butshadow" type="submit" name="submit" value="Сохранить">
 	<input type="button" class="butshadow" onclick="cl('./index.php?p=aak&id=%id%&b=%baza%')" value="Отмена">
 	</div>

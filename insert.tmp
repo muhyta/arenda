@@ -1,7 +1,7 @@
 %menu%
 %filter%
 %base%
-<form action="./index.php" method="get" enctype="text/plain">
+<form action="./index.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="p" value="insert">
 <input type="hidden" id="b" name="b" value="1">
 <input type="hidden" name="id" value="%id%">
